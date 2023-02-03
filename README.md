@@ -1,125 +1,41 @@
+
 # Naive DEA
 
-**DON'T FORGET TO CHANGE THE PARAMETER IN *main.c*  **
+**DON'T FORGET TO CHANGE THE PARAMETER IN *main.c***
 <br>
 
 ## FLOW CHART
 
-```flow
-st=>start: start
-xy=>subroutine: readXY()
-o=>inputoutput: output
-optimizer=>subroutine: optimaizer()
-e=>end: end
-
-st(right)->xy(right)->optimizer(right)->o(right)->e
-```
-<br>
+![image](https://user-images.githubusercontent.com/67819080/216556368-57350be6-1935-4876-8a17-dcdd4a27d9c4.png)
 
 ----
 
-<br>
-```flow
-st=>start: readXY()
-input=>inputoutput: readfile
-ss=>operation: split & store
-eq=>operation: initialize the
-equal constraint
-negX=>operation: change X
-into -X
-e=>end: return
-
-st(right)->input(right)->ss(right)->eq(right)->negX(right)->e
-```
-<br>
+![image](https://user-images.githubusercontent.com/67819080/216556493-509b7ba0-c7ce-4317-9ab3-9b69980391c2.png)
 
 ----
 
-<br>
-```flow
-st=>start: optimizer()
-nm=>subroutine: new_model()
-initC=>subroutine: init_constraints()
-cond=>condition: list == NULL ?
-opA=>subroutine: optimize_all()
-opP=>subroutine: optimize_partOf()
-e=>end: return
-st(right)->nm(right)->initC(right)->cond
-cond(yes,right)->opA(right)->e
-cond(no)->opP(right)--->e
-```
-<br>
+![image](https://user-images.githubusercontent.com/67819080/216556616-6eb91537-e2dc-4e92-85da-0d6ec07de775.png)
+
 
 ----
 
-<br>
-```flow
-st=>start: new_Model()
-create=>operation: Create an\
-empty model 
-para=>operation: set model parameter
-cof=>operation: set the coeffients 
-of the objective matrix
-sence=>operation: Set objective sense to 'minimization'
-e=>end: return
+![image](https://user-images.githubusercontent.com/67819080/216556690-82fc098f-bc43-4ee9-8ebd-8b48935c211c.png)
 
-st(right)->create(right)->para(right)->cof(right)->sence(right)->e
 
-```
-<br>
 
 ----
 
 **DON'T CHANGE THE ORDER OF FUNCTIONS IN THIS SUBROUTINE**
-<br>
-```flow
-st=>start: init_constraint()
-eq=>subroutine: addEqConstraint()
-x=>subroutine: addXConstraint()
-y=>subroutine: addYConstraint()
-e=>end: return
-st(right)->eq(right)->x(right)->y(right)->e
-```
-<br>
+
+![image](https://user-images.githubusercontent.com/67819080/216556768-b03f12b5-bc0e-4333-bc2f-7927a09da3e2.png)
 
 ----
 
-<br>
-```flow
-st=>start: optimize_all()
-Xr=>operation: update Xr
-cof=>operation: change coefficients
-based on their position
-rhs=>operation: change rhs
-opti=>operation: Optimize model and get results
-cond=>condition: is all cases 
-optimized?
-e=>end: return
 
-st(right)->Xr(right)->cof(right)->rhs(right)->opti(right)->cond->
-cond(yes)->e
-cond(no,right)->Xr
+![image](https://user-images.githubusercontent.com/67819080/216556864-57af2f6f-0f4e-4855-a477-e348bbf0a1a2.png)
 
-```
-<br>
 
 ----
 
-<br>
-```flow
-st=>start: optimize_partOf()
-Xr=>operation: update Xr
-cof=>operation: change coefficients
-based on their position
-rhs=>operation: change rhs
-opti=>operation: Optimize model and get results
-cond=>condition: is all cases 
-in the list
-optimized?
-e=>end: return
+![image](https://user-images.githubusercontent.com/67819080/216556998-9ac9c5a6-a1fa-4d26-bb00-095168124430.png)
 
-st(right)->Xr(right)->cof(right)->rhs(right)->opti(right)->cond->
-cond(yes)->e
-cond(no,right)->Xr
-
-```
