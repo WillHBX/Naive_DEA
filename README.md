@@ -1,8 +1,7 @@
 
 # Naive DEA
+## The implementation of the algorithm in DEA.pdf
 
-**DON'T FORGET TO CHANGE THE PARAMETER IN *main.c***
-<br>
 
 ## FLOW CHART
 
